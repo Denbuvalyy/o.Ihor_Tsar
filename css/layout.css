@@ -27,13 +27,13 @@ img {
     width: 20%;
     text-align: center;
     padding: 5px;
-    margin-top: 50px;
+    margin-top: 15px;
 }
 
     .menu a {
         background-color:burlywood;
         padding: 8px;
-        margin-top: 25px;
+        margin-top: 35px;
         display: block;
         width: 100%;
         color: black;
@@ -52,7 +52,7 @@ img {
     float: left;
     width: 20%;
     padding: 10px 10px;
-    margin-top: 75px;    
+    margin-top: 50px;    
     color: black;
     text-align: justify;
 }

@@ -26,14 +26,13 @@ img {
     float: left;
     width: 20%;
     text-align: center;
-    padding: 5px;
-    margin-top: 8px;
+    padding: 5px;    
 }
 
     .menu a {
         background-color:burlywood;
         padding: 20px;
-        margin-top: 35px;
+        margin-top: 30px;
         display: block;
         width: 100%;
         color: black;

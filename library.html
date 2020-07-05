@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Книги отця Ігоря Царя</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <link href="./css/layout.css" rel="stylesheet"/>
+        <script src="query/jquery.min.js"></script>
+       
+
+    </head>
+    <body style="background-color:burlywood;"> 
+        <div class="imgContainer img-responsive" style="margin:5px;">
+            <h3 style="text-align: center;font-family: Arial, Helvetica, sans-serif;">Книги отця Ігоря Царя</h4>
+            <div id="output" ></div>                     
+        </div>   
+        <div class="return">
+            <a href="index.html">Головна</a>
+        </div>    
+       
+          
+        <script type="text/javascript"> 
+
+
+        /*
+        //var url="http://www.example.com/file.json";
+        var url="booklist.txt";
+        var jsonFile=new XMLHttpRequest();
+        jsonFile.open("GET",url,true);
+        jsonFile.send();
+        jsonFile.onreadystatechange=function(){
+            if(jsonFile.readyState==4&&jsonFile.status==200){
+                document.getElementById("output").innerHTML=jsonFile.responseText;
+            }
+        }
+        
+
+       /* var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function () {
+   if (xmlhttp.readyState == 4) {
+       var allText = xmlhttp.responseText;          
+            }
+        };
+xmlhttp.open("GET", "booklist.txt", false);
+xmlhttp.send(null);
+
+
+        /*
+        async function loadText(url) {
+    text = await fetch(url);
+    //awaits for text.text() prop 
+    //and then sends it to readText()
+    readText(await text.text());
+}
+
+function readText(text){
+    //here you can continue with your JS normal logic
+    console.log(text);
+}
+
+loadText('booklist.txt');
+
+
+      /*  var path="C:/Users/User/Desktop/o.Ihor_Tsar/booklist.txt";
+        //var path = C:\\established-titles\\orders\\shopify-orders.txt
+var fs = require('fs');
+fs.readFile(path , 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log('OK: ' + filename);
+  console.log(data)
+});
+*/
+
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                
+                var obj=JSON.parse(allText);
+                for(i=0;i<obj.books.length;i++){ 
+
+                    var container=document.createElement("div");
+                    container.style.margin="15px";    
+                    container.style.display="inline-block";                             
+
+                    var img=new Image(300,300);
+                    img.src=obj.books[i].image;
+                    
+                    var span=document.createElement("div");
+                    span.innerHTML=obj.books[i].name;               
+                    span.style.fontSize="22px";
+                    span.style.textAlign="center";
+                    span.style.color="black";
+                    span.style.width="300px";
+                    
+                    var link=document.createElement("a");
+                    link.href=obj.books[i].path;
+                    link.target="_blank";
+                    link.style.textDecoration="none";
+                    link.appendChild(img);
+                    link.appendChild(span);
+
+                    container.appendChild(link);                   
+                   
+                    document.getElementById("output").appendChild(container);              
+
+                }
+
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
+$(document).ready(function(){
+    
+    readTextFile("librarylist.json");  
+
+});
+          
+           
+          /* 
+          $(document).ready(function readJSON(path) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', path, true);
+            xhr.responseType = 'blob';
+            xhr.onload = function(e) { 
+            if (this.status == 200) {
+            var file = new File([this.response], 'booklist.json');
+            var fileReader = new FileReader();
+            fileReader.addEventListener('load', function(){
+               //do stuff with fileReader.result
+               document.getElementById('output').textContent=fileReader.result; 
+            });
+            fileReader.readAsText(file);
+         } 
+    }
+    xhr.send();
+});
+*/
+           
+            /*document.getElementById('inputfile') 
+                .addEventListener('change', function() { 
+                  
+                var fr=new FileReader(); 
+                fr.onload=function(){ 
+                    document.getElementById('output') 
+                            .textContent=fr.result; 
+                } 
+                  
+                fr.readAsText(this.files[0]); 
+            })*/ 
+
+
+/*
+  pdfjsLib.getDocument("./Books/Professional Csharp 7 and .NET Core 2.0.pdf").promise.then(function (doc) {
+  var pages = []; while (pages.length < doc.numPages) pages.push(pages.length + 1);
+  return Promise.all(pages.map(function (num) {
+    // create a div for each page and build a small canvas for it
+    var div = document.createElement("div");
+    document.body.appendChild(div);
+    return doc.getPage(num).then(makeThumb)
+      .then(function (canvas) {
+        div.appendChild(canvas);
+    });
+  }));
+}).catch(console.error);
+
+
+
+  function makeThumb(page) {
+    // draw page to fit into 96x96 canvas
+    var vp = page.getViewport(1);
+    var canvas = document.createElement("canvas");
+    canvas.width = canvas.height = 96;
+    var scale = Math.min(canvas.width / vp.width, canvas.height / vp.height);
+    return page.render({canvasContext: canvas.getContext("2d"), viewport: page.getViewport(scale)}).promise.then(function () {
+        return canvas;
+        });
+    } */  
+        </script> 
+    </body> 
+</html>

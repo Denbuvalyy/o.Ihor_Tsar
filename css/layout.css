@@ -5,6 +5,17 @@ body {
     margin: 0px;
     
 }
+.first {
+    color: rgb(212, 37, 37);
+    font-style: italic;
+}
+.second {
+    color: rgb(212, 37, 37);
+    font-style: italic;
+}
+.third {
+    cursor: default;
+}
 .specialOne {
     /*background: url("./Images/Сакре-Кьор.jpg") fixed center center no-repeat;
     background-size: cover;

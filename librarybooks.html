@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Релігійні книги</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <link href="./css/layout.css" rel="stylesheet"/>
+        <script src="query/jquery.min.js"></script>
+       
+
+    </head>
+    <body style="background-color:burlywood;"> 
+        <div class="imgContainer img-responsive" style="margin:5px;">
+            <h2 style="text-align: center;font-family: Arial, Helvetica, sans-serif;">Релігійні книги</h2>
+            <div id="output" ></div>                     
+        </div>   
+        <div class="return">
+            <a href="index.html">Головна</a>
+        </div>    
+       
+          
+        <script type="text/javascript">       
+
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                
+                var obj=JSON.parse(allText);
+                for(i=0;i<obj.books.length;i++){ 
+
+                    var container=document.createElement("div");
+                    container.style.margin="15px";    
+                    container.style.display="inline-block";                             
+
+                    var img=new Image(300,300);
+                    img.src=obj.books[i].image;
+                    
+                    var span=document.createElement("div");
+                    span.innerText=obj.books[i].name;                                  
+                    span.style.fontSize="22px";
+                    span.style.textAlign="center";
+                    span.style.color="black";
+                    span.style.width="300px";
+                    
+                    var link=document.createElement("a");
+                    link.href=obj.books[i].path;
+                    link.target="_blank";
+                    link.style.textDecoration="none";
+                    link.appendChild(img);                   
+                    link.appendChild(span);                    
+
+                    container.appendChild(link);                   
+                   
+                    document.getElementById("output").appendChild(container);
+                }
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
+$(document).ready(function(){
+    
+    readTextFile("librarylist.json");  
+
+});  
+           
+   
+        </script> 
+    </body> 
+</html>

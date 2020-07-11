@@ -65,7 +65,19 @@ function readTextFile(file)
                         span.innerText+="\n";                        
                         span.appendChild(linkImages);
                     }
+
+                    if(obj.books[i].name=="За що ми любимо Бандеру"){
+                        var linkImages=document.createElement("a");
+                        linkImages.href="Books/15. За що ми любимо Бандеру (укр,англ,рос)/042_Bandera_Eng.pdf";
+                        linkImages.style.textDecoration="none";
+                        var linktext=document.createTextNode("Why we love Bandera");
+                        linkImages.appendChild(linktext);
+                        span.innerText+="\n";                        
+                        span.appendChild(linkImages);
+                        
+                    }
                    
+
                     link.appendChild(span);                    
 
                     container.appendChild(link);                   

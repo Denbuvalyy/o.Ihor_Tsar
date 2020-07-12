@@ -59,7 +59,9 @@ function readTextFile(file)
                     if(obj.books[i].name=="Троянди від сестри Теклі"){
                         var linkImages=document.createElement("a");
                         linkImages.href="tekliaimages.html";
-                        linkImages.style.textDecoration="none";
+                        linkImages.style.textDecoration="none";   
+                        linkImages.style.color="red";
+                     
                         var linktext=document.createTextNode("39 фото сестри Теклі");
                         linkImages.appendChild(linktext);
                         span.innerText+="\n";                        
@@ -70,11 +72,58 @@ function readTextFile(file)
                         var linkImages=document.createElement("a");
                         linkImages.href="Books/15. За що ми любимо Бандеру (укр,англ,рос)/042_Bandera_Eng.pdf";
                         linkImages.style.textDecoration="none";
+                        linkImages.target="_blank";
+                        linkImages.style.color="green";
                         var linktext=document.createTextNode("Why we love Bandera");
+                        linkImages.appendChild(linktext);
+                        span.innerHTML+="</br>";
+                        span.appendChild(linkImages);                 
+                       
+                        var linkImage=document.createElement("a");
+                        linkImage.href="Books/15. За що ми любимо Бандеру (укр,англ,рос)/046_Bandera-ros.pdf";
+                        linkImage.style.textDecoration="none";
+                        linkImage.target="_blank";
+                        linkImage.style.color="red";
+                        var linktexts=document.createTextNode("За что мы любим Бандеру");                        
+                        linkImage.appendChild(linktexts);
+                        span.innerHTML+="</br>";
+                        span.appendChild(linkImage);
+                    }
+
+                    if(obj.books[i].name=="Паломник"){
+                        var linkImages=document.createElement("a");
+                        linkImages.href="Books/26. Паломник/Паломник_англ.pdf";
+                        linkImages.style.textDecoration="none";                        
+                        linkImages.target="_blank";
+                        linkImages.style.color="red";
+                        var linktext=document.createTextNode("Pilgrim");
                         linkImages.appendChild(linktext);
                         span.innerText+="\n";                        
                         span.appendChild(linkImages);
-                        
+                    }
+
+                    if(obj.books[i].name=="Велетень Духа"){
+                        var linkImages=document.createElement("a");
+                        linkImages.href="Books/27. Велетень Духа/Велетень Духа_англ.pdf";
+                        linkImages.style.textDecoration="none";                        
+                        linkImages.target="_blank";
+                        linkImages.style.color="red";
+                        var linktext=document.createTextNode("Spiritual Giant");
+                        linkImages.appendChild(linktext);
+                        span.innerText+="\n";                        
+                        span.appendChild(linkImages);
+                    }
+
+                    if(obj.books[i].name=="Останні будуть першими"){
+                        var linkImages=document.createElement("a");
+                        linkImages.href="Books/2.Останні будуть першими (англ.)/2. Останні б.п.англ.pdf";
+                        linkImages.style.textDecoration="none";                        
+                        linkImages.target="_blank";
+                        linkImages.style.color="red";
+                        var linktext=document.createTextNode("The last shall be first");
+                        linkImages.appendChild(linktext);
+                        span.innerText+="\n";                        
+                        span.appendChild(linkImages);
                     }
                    
 

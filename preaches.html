@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ihor Tsar preaches</title>
+    <link href="./css/layout.css" rel="stylesheet"/>
+    <script src="./query/jquery.min.js"></script>
+ 
+</head>
+<body style="background-color:burlywood;"> 
+    <div class="imgContainer img-responsive" style="margin:5px;">
+        <h2 style="text-align: center;font-family: Arial, Helvetica, sans-serif;">Проповіді отця Ігоря Царя</h2>
+        <div id="outputvideos" ></div>                 
+    </div>       
+    <hr>    
+    <div class="return">
+        <a href="index.html">Головна</a>
+    </div>    
+
+<script>
+    
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                
+                var obj=JSON.parse(allText);
+                for(i=0;i<obj.preaches.length;i++){ 
+
+                    var container=document.createElement("div");
+                    container.style.margin="20px";    
+                    container.style.display="inline-block";   
+
+                    var frame=document.createElement("iframe");
+                    frame.width="300px";
+                    frame.height="300px";
+                    frame.src="https://www.youtube.com/embed/"+obj.preaches[i].id;
+                    container.appendChild(frame);                  
+                    
+                    var span=document.createElement("div");
+                    span.innerHTML=obj.preaches[i].name;               
+                    span.style.fontSize="24px";
+                    span.style.textAlign="center";
+                    span.style.color="black";
+                    span.style.width="300px";
+
+                    container.appendChild(span);                            
+                   
+                    document.getElementById("outputvideos").appendChild(container);              
+
+                }
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
+$(document).ready(function(){
+    
+    readTextFile("preachlist.json");
+});
+
+</script>
+   
+</body>
+</html>

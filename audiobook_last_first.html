@@ -38,23 +38,25 @@ function readTextFile(file)
                 for(i=0;i<obj.chapters.length;i++){                     
 
                     var container=document.createElement("div");
-                    container.style.margin="15px";    
-                    container.style.display="inline-block";                      
+                    container.style.margin="20px";    
+                    container.style.display="inline-block";   
+
+                    var frame=document.createElement("iframe");
+                    frame.width="300px";
+                    frame.height="300px";
+                    frame.src="https://www.youtube.com/embed/"+obj.chapters[i].id;
+                    container.appendChild(frame);                  
                     
-                    var span=document.createElement("span");
-                    span.innerText=obj.chapters[i].name;                                  
-                    span.style.fontSize="22px";
+                    var span=document.createElement("div");
+                    span.innerHTML=obj.chapters[i].name;               
+                    span.style.fontSize="24px";
                     span.style.textAlign="center";
-                    span.style.color="black";                
-                    
-                    var sound = document.createElement('audio');                    
-                    sound.controls = 'controls';
-                    sound.src = obj.chapters[i].path;
-                    sound.type = 'audio/mpeg';
-                    container.appendChild(span);
-                    container.appendChild(sound);                
-                    
-                    document.getElementById("output").appendChild(container);
+                    span.style.color="black";
+                    span.style.width="300px";
+
+                    container.appendChild(span);                            
+                   
+                    document.getElementById("outputvideos").appendChild(container);    
                 }                
             }
         }

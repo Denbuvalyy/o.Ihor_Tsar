@@ -37,8 +37,9 @@ function readTextFile(file)
                 var obj=JSON.parse(allText);
                 for(i=0;i<obj.chapters.length;i++){                     
 
-                    var container=document.createElement("div");
-                    container.style.margin="20px";    
+                    var container=document.createElement("div");                    
+                    container.style.marginLeft="25px";
+                    container.style.marginTop="20px";
                     container.style.display="inline-block";   
 
                     var frame=document.createElement("iframe");

@@ -1,1 +1,1 @@
-https://github.com/Denbuvalyy/o.Ihor_Tsar
+https://denbuvalyy.github.io/o.Ihor_Tsar/

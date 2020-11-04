@@ -1,2 +1,1 @@
-# o.Ihor_Tsar
-Static web site
+https://github.com/Denbuvalyy/o.Ihor_Tsar
